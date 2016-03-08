@@ -1,0 +1,25 @@
+# Shorten.me - url shortener idea
+
+URLs will be stored as a tuple (URL,unique_hash)
+
+# Index route (shorten.me)
+
+Methods: GET; POST
+
+1. GET
+  * Render form - enter URL to shorten
+2. POST
+  * Unpickle list of existing url/unique_hash tuples
+  * Check for POSTed URL in unpickled list
+  * If URL in list:
+    * redirect to URL
+  * Else:
+    * create unique hash
+    * check hash not already used
+    * If used:
+      * recreate hash
+    * Else:
+      * Use hash
+    * Apend hash and POSTed URL to list as tuple
+    * Repickle list
+    * Redirect to shortened URL landing page (shorten.em/shortened/)
