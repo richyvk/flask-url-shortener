@@ -18,7 +18,7 @@ def index():
         # Handle POSTed URLs that have been shortened previously
         for item in url_list:
             if url == item[0]:
-                shortened_url = 'www.shorten.me/%s' % item[1]
+                shortened_url = 'localhost:5000/%s' % item[1]
                 return redirect(url_for('shortened', url=shortened_url))
 
         # handle new URLs to be shortened
@@ -34,7 +34,7 @@ def index():
 
         # redirect to shortened page displaying shortened URL
         # shortened URL passed as query param
-        shortened_url = 'www.shorten.me/%s' % url_hash
+        shortened_url = 'localhost:5000/%s' % url_hash
         return redirect(url_for('shortened', url=shortened_url))
 
     else:
