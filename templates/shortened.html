@@ -1,1 +1,12 @@
-<h1>Your URL has been shortened to {{ url }}</h1>
+{% extends 'base.html' %}
+{% block title %}xxss.it - your shortened url{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+				<h1>Your URL has been shortened to {{ url }}</h1>
+			</div>
+		</div>
+	</div>
+{% endblock %}
