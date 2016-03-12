@@ -1,9 +1,10 @@
 import cPickle as pickle
 import random
 import string
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, flash, render_template, redirect, request, url_for
 
 app = Flask(__name__)
+app.secret_key = 'MAKE_THIS_VERY_HARD_TO_GUESS'
 
 
 # index route
@@ -57,7 +58,8 @@ def redirect_url(hash):
     for item in url_list:
         if hash == item[1]:
             return redirect(item[0])
-    return "No URL exists"
+    flash("<strong>Redirect failed:</strong> shortened url does not exist. Enter a url to shorten below.")
+    return redirect(url_for('index'))
 
 
 if __name__ == '__main__':
